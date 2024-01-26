@@ -8,4 +8,3 @@ WORKDIR /app
 COPY ingest_data_zones.py ingest_data_zones.py
 
 ENTRYPOINT [ "python", "ingest_data_zones.py" ]
-
