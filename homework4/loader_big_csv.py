@@ -13,7 +13,6 @@ Pre-reqs:
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] ="C:/Users/jober/data_engineering_zoomcamp/GCP/data-taxi-1-a1d4e91c10cd.json"
 
 # services = ['fhv','green','yellow']
-service = ['fhv']
 init_url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/'
 # switch out the bucketname
 BUCKET = os.environ.get("GCP_GCS_BUCKET", "dtc_data_lake_data-taxi-1")
@@ -35,7 +34,7 @@ def upload_to_gcs(bucket, object_name, local_file):
 
 
 def web_to_gcs(year, service):
-    for i in range(2):
+    for i in range(2,13):
         
         # sets the month part of the file_name string
         month = '0'+str(i+1)
@@ -59,9 +58,7 @@ def web_to_gcs(year, service):
                     'trip_distance': float,
                     'RatecodeID':pd.Int64Dtype(),
                     'store_and_fwd_flag':str,
-                    'PULocationID':pd.Int64Dtype(),
                     'PUlocationID':pd.Int64Dtype(),
-                    'DOLocationID':pd.Int64Dtype(),
                     'DOlocationID':pd.Int64Dtype(),
                     'payment_type': pd.Int64Dtype(),
                     'fare_amount': float,
