@@ -21,6 +21,6 @@ select fhv_tripsdata.tripid,
     fhv_tripsdata.SR_flag
 from fhv_tripsdata
 inner join dim_zones as pickup_zone
-on fhv_tripsdata.pickup_locationid = dim_zones.pickup_zone
+on fhv_tripsdata.pickup_locationid = dim_zones.locationid
 inner join dim_zones as dropoff_zone
-on fhv_tripsdata.dropoff_locationid = dim_zones.dropoff_locationid
+on fhv_tripsdata.dropoff_locationid = dim_zones.locationid
