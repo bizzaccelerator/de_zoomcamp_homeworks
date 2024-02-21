@@ -6,7 +6,8 @@
 
 with tripdata as 
 (
-    select *
+    select *,
+        row_number() over(partition by dispatching_base_num, pickup_datetime) as rn
     from {{ source('staging','fhv_tripsdata') }}
     -- where date(pickup_datetime) between '2019-01-01' and '2019-12-31'
 )
@@ -24,6 +25,7 @@ select
     SR_flag,
 
 from tripdata
+where rn = 1
 
 
 -- dbt build --select <model_name> --vars '{'is_test_run': 'false'}'
