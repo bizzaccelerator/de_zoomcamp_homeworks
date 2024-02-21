@@ -9,6 +9,7 @@ with tripdata as
     select *,
         row_number() over(partition by dispatching_base_num, pickup_datetime) as rn
     from {{ source('staging','fhv_tripsdata') }}
+    where dispatching_base_num is not null
     -- where date(pickup_datetime) between '2019-01-01' and '2019-12-31'
 )
 select
