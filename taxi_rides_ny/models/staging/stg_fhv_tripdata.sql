@@ -8,7 +8,7 @@ with tripdata as
 (
     select *
     from {{ source('staging','fhv_tripsdata') }}
-    where date(pickup_datetime) between '2019-01-01' and '2019-12-31'
+    -- where date(pickup_datetime) between '2019-01-01' and '2019-12-31'
 )
 select
     -- identifiers
