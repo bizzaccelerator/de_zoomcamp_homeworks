@@ -14,7 +14,7 @@ with tripdata as
 )
 select
     -- identifiers
-    {{ dbt_utils.generate_surrogate_key(['dispatching_base_num', 'Affiliated_base_number']) }} as tripid,
+    {{ dbt_utils.generate_surrogate_key(['dispatching_base_num', 'pickup_datetime']) }} as tripid,
     {{ dbt.safe_cast("pulocationid", api.Column.translate_type("integer")) }} as pickup_locationid,
     {{ dbt.safe_cast("dolocationid", api.Column.translate_type("integer")) }} as dropoff_locationid,
     
