@@ -9,6 +9,16 @@ with fhv_tripsdata as
     'fhv' as service_type,
     from {{ ref('stg_fhv_tripdata') }}
 ),
+green_tripdata as (
+    select *, 
+        'Green' as service_type
+    from {{ ref('stg_green_tripdata') }}
+), 
+yellow_tripdata as (
+    select *, 
+        'Yellow' as service_type
+    from {{ ref('stg_yellow_tripdata') }}
+), 
 dim_zones as (
     select * from {{ ref('dim_zones') }}
     where borough != 'Unknown'
