@@ -4,3 +4,4 @@ These are my answers to the assignments into Data Engineering Zoomcamp.
 3. Module 3: Data Warehouse (Usage of Big Query).
 4. Workshop 1: Data ingestion with dlt.
 5. Module 4: Analytics Engineering.
+6. Module 5: Batch Processing using spark.
